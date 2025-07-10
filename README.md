@@ -6,9 +6,9 @@
 
 实现效果：
 
-![image-20250710152142143](D:\code\doudizhu\ddz_network\ddz_client\ddz_client\readmepic\image-20250710152142143.png)
+![image-20250710152142143](./readmepic/image-20250710152142143.png)
 
-![image-20250710152236391](D:\code\doudizhu\ddz_network\ddz_client\ddz_client\readmepic\image-20250710152236391.png)
+![image-20250710152236391](./readmepic/image-20250710152236391.png)
 
 ## TODO
 
