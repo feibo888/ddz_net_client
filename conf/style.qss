@@ -1,0 +1,323 @@
+/*
+    登录窗口背景
+*/
+Login
+{
+    border-image: url(:/images/login-bk.png);
+}
+
+/*
+    游戏模式窗口背景
+*/
+GameMode
+{
+    border-image: url(:/images/mode-bk.png);
+}
+
+/*
+    加入房间窗口背景
+*/
+JoinRoom
+{
+    border-image: url(:/images/msgbox-bk.png);
+}
+
+/*
+    登录按钮
+*/
+QPushButton#loginBtn
+{
+    border-image: url(:/images/login-normal.png);
+    min-width: 100px;
+    min-height: 35px;
+}
+
+QPushButton#loginBtn:hover
+{
+    border-image: url(:/images/login-hover.png);
+}
+
+QPushButton#loginBtn:press
+{
+    border-image: url(:/images/login-press.png);
+}
+
+/*
+    注册按钮
+*/
+QPushButton#registerBtn
+{
+    border-image: url(:/images/reg-normal.png);
+    min-width: 100px;
+    min-height: 35px;
+}
+
+QPushButton#registerBtn:hover
+{
+    border-image: url(:/images/reg-hover.png);
+}
+
+QPushButton#registerBtn:press
+{
+    border-image: url(:/images/reg-press.png);
+}
+
+/*
+    网络设置确定按钮
+*/
+QPushButton#netOKBtn
+{
+    border-image: url(:/images/ok.png);
+    min-width: 100px;
+    min-height: 35px;
+}
+
+QPushButton#netOKBtn:hover
+{
+    border-image: url(:/images/ok1.png);
+}
+
+QPushButton#netOKBtn:press
+{
+    border-image: url(:/images/ok2.png);
+}
+
+/*
+    主页按钮
+*/
+QPushButton#home
+{
+    border-image: url(:/images/go_home.png);
+    min-width: 36px;
+    min-height: 36px;
+}
+
+QPushButton#home:hover
+{
+    border-image: url(:/images/go_home1.png);
+}
+
+QPushButton#home:press
+{
+    border-image: url(:/images/go_home2.png);
+}
+
+/*
+    网络设置按钮
+*/
+QPushButton#netSet
+{
+    border-image: url(:/images/www_dial.png);
+    min-width: 36px;
+    min-height: 36px;
+}
+
+QPushButton#netSet:hover
+{
+    border-image: url(:/images/www_dial1.png);
+}
+
+QPushButton#netSet:press
+{
+    border-image: url(:/images/www_dial2.png);
+}
+
+/*
+    几个窗口上文字格式设置
+*/
+QLabel#label, #label_2, #label_3, #label_4, #label_5, #label_6, #label_7
+{
+    font-size: 12pt;
+    font-family: 宋体;
+}
+
+/*
+    单机模式对应图案
+*/
+QLabel#single_label
+{
+    border-image: url(:/images/single-mode.png);
+    min-width: 234px;
+    min-height: 61px;
+}
+
+/*
+    网络模式对应图案
+*/
+QLabel#net_label
+{
+    border-image: url(:/images/net-mode.png);
+    min-width: 234px;
+    min-height: 61px;
+}
+
+/*
+    单机模式按钮对应图案
+*/
+QPushButton#singleModeBtn
+{
+    border-image: url(:/images/single-btn.png);
+    min-width: 220px;
+    min-height: 166px;
+}
+
+QPushButton#singleModeBtn:hover
+{
+    border-image: url(:/images/single-btn1.png);
+}
+
+QPushButton#singleModeBtn:press
+{
+    border-image: url(:/images/single-btn2.png);
+}
+
+/*
+    网络模式按钮对应图案
+*/
+QPushButton#netModeBtn
+{
+    border-image: url(:/images/net-btn.png);
+    min-width: 220px;
+    min-height: 166px;
+}
+
+QPushButton#netModeBtn:hover
+{
+    border-image: url(:/images/net-btn1.png);
+}
+
+QPushButton#netModeBtn:press
+{
+    border-image: url(:/images/net-btn2.png);
+}
+
+/*
+    自动创建房间对应图案
+*/
+QLabel#auto_label
+{
+    border-image: url(:/images/zidongchuagnjiang.png);
+    min-width: 120px;
+    min-height: 31px;
+}
+
+/*
+    手动创建房间对应图案
+*/
+QLabel#manual_label
+{
+    border-image: url(:/images/shoudongchuangjian.png);
+    min-width: 120px;
+    min-height: 31px;
+}
+
+/*
+    搜索房间对应图案
+*/
+QLabel#search_label
+{
+    border-image: url(:/images/searchroom.png);
+    min-width: 120px;
+    min-height: 31px;
+}
+
+
+/*
+    自动创建房间按钮对应图案
+*/
+QPushButton#autoBtn
+{
+    border-image: url(:/images/auto-join.png);
+    min-width: 150px;
+    min-height: 150px;
+}
+
+QPushButton#autoBtn:hover
+{
+    border-image: url(:/images/auto-join1.png);
+}
+
+QPushButton#autoBtn:press
+{
+    border-image: url(:/images/auto-join2.png);
+}
+
+/*
+    手动创建房间按钮对应图案
+*/
+QPushButton#manualBtn
+{
+    border-image: url(:/images/join.png);
+    min-width: 150px;
+    min-height: 150px;
+}
+
+QPushButton#manualBtn:hover
+{
+    border-image: url(:/images/join1.png);
+}
+
+QPushButton#manualBtn:press
+{
+    border-image: url(:/images/join2.png);
+}
+
+/*
+    所搜房间按钮对应图案
+*/
+QPushButton#searchBtn
+{
+    border-image: url(:/images/search.png);
+    min-width: 150px;
+    min-height: 150px;
+}
+
+QPushButton#searchBtn:hover
+{
+    border-image: url(:/images/search1.png);
+}
+
+QPushButton#searchBtn:press
+{
+    border-image: url(:/images/search2.png);
+}
+
+/*
+    创建房间按钮对应图案
+*/
+QPushButton#createRoomBtn
+{
+    border-image: url(:/images/createRoom-normal.png);
+    min-width: 100px;
+    min-height: 45px;
+}
+
+QPushButton#createRoomBtn:hover
+{
+    border-image: url(:/images/createRoom-hover.png);
+}
+
+QPushButton#createRoomBtn:press
+{
+    border-image: url(:/images/createRoom-pressed.png);
+}
+
+/*
+    搜索房间按钮对应图案
+*/
+QPushButton#searchRoomBtn
+{
+    border-image: url(:/images/searchRoom-normal.png);
+    min-width: 100px;
+    min-height: 45px;
+}
+
+QPushButton#searchRoomBtn:hover
+{
+    border-image: url(:/images/searchRoom-hover.png);
+}
+
+QPushButton#searchRoomBtn:press
+{
+    border-image: url(:/images/searchRoom-pressed.png);
+}
