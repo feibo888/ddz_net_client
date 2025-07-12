@@ -28,15 +28,19 @@ GameMode::GameMode(QWidget *parent)
     //开始游戏
     connect(comm, &Communication::startGame, this, [=](QByteArray msg)
     {
-        this->hide();
-        GamePanel* pannel = new GamePanel;
-        connect(pannel, &GamePanel::panelClose, this, &GameMode::show);
-        pannel->show();
-        //初始化数据
-        pannel->initGamePanel(msg);
+        if(this->isVisible())
+        {
+            this->hide();
+            GamePanel* pannel = new GamePanel;
+            connect(pannel, &GamePanel::panelClose, this, &GameMode::show);
+            pannel->show();
+            //初始化数据
+            pannel->initGamePanel(msg);
+        }
+
 
         //断开信号槽连接
-        disconnect(comm, &Communication::startGame, this, nullptr);
+        // disconnect(comm, &Communication::startGame, this, nullptr);
     });
 
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, [=](int index)
@@ -124,5 +128,17 @@ void GameMode::closeEvent(QCloseEvent *event)
         msg.roomName = DataManager::getInstance()->getRoomName();
         DataManager::getInstance()->getCommunication()->sendMessage(&msg);
         DataManager::getInstance()->getCommunication()->setStop();
+
+        // 等待线程池中的任务完成，但设置超时
+        QThreadPool::globalInstance()->clear(); // 清除未开始的任务
+        bool finished = QThreadPool::globalInstance()->waitForDone(2000); // 等待2秒
+
+        if(!finished)
+        {
+            qDebug() << "Force terminating thread pool tasks" << Qt::endl;
+        }
+        
+        // 强制退出应用程序
+        QApplication::quit();
     }
 }

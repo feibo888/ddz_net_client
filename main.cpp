@@ -46,38 +46,7 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
 
-    // //加载资源文件
-    // QFile file(":/conf/style.qss");
-    // file.open(QFile::ReadOnly);
-    // QByteArray all = file.readAll();
-    // a.setStyleSheet(all);
-    // file.close();
-
-
-    // Login w;
-    // int ret = w.exec();
-
-    // if(ret == QDialog::Accepted)
-    // {
-    //     //test();
-    //     return a.exec();
-    // }
-
-    // return 0;
-
-    Loading loadingScreen;
-
-    QObject::connect(&loadingScreen, &Loading::loadingFinished, &loadingScreen, [&]()
-    {
-        Login loginDialog;
-        int ret = loginDialog.exec();
-        if (ret != QDialog::Accepted)
-        {
-            QApplication::quit();
-        }
-    });
-
-    loadingScreen.show();
+    a.setQuitOnLastWindowClosed(true);
 
     //加载资源文件
     QFile file(":/conf/style.qss");
@@ -85,6 +54,28 @@ int main(int argc, char *argv[])
     QByteArray all = file.readAll();
     a.setStyleSheet(all);
     file.close();
+
+    Loading* loadingScreen = new Loading();
+
+    QObject::connect(loadingScreen, &Loading::loadingFinished, loadingScreen, [&]()
+    {
+        loadingScreen->deleteLater();
+
+        Login* loginDialog = new Login();
+        int ret = loginDialog->exec();
+
+        if (ret != QDialog::Accepted)
+        {
+            loginDialog->deleteLater();
+            QApplication::quit();
+        }
+        else
+        {
+            loginDialog->deleteLater();
+        }
+    });
+
+    loadingScreen->show();
 
     return a.exec();
 }

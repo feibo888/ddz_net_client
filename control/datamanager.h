@@ -46,7 +46,7 @@ private:
 
     QByteArray m_userName;
     QByteArray m_roomName;
-    QByteArray m_ip = "47.121.134.236";
+    QByteArray m_ip = "172.26.168.246";       //47.121.134.236
     QByteArray m_port = "10000";
     Communication* m_comm;
     Cards m_cards;

@@ -3,6 +3,7 @@
 #include <RsaCrypto.h>
 #include <QDateTime>
 #include <QDataStream>
+#include <QThreadPool>
 #include "cards.h"
 #include "card.h"
 #include "datamanager.h"
@@ -43,12 +44,15 @@ void Communication::run()
         //处理服务器回复的数据
         parseRecvMessage();
 
-        //首先得到非对称加密的公钥，发送加密之后的对称加密密钥给服务器，服务器回复接收密钥成功的消息，然后发送登录或者注册请求
+        // 添加短暂休眠，避免CPU占用过高，同时允许及时响应停止信号
+        QThread::msleep(10);
 
     }
     m_socket->disConnect();
     delete m_socket;
+    m_socket = nullptr;
 
+    qDebug() << "Communication thread finished" << Qt::endl;
 }
 
 void Communication::sendMessage(Message *msg, bool encrypt)

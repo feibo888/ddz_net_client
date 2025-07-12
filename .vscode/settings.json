@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "charconv": "cpp",
+        "xmemory": "cpp",
+        "ostream": "cpp",
+        "qthreadpool": "cpp"
+    }
+}

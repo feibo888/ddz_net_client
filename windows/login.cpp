@@ -59,21 +59,29 @@ Login::Login(QWidget *parent)
     ui->regPassword->setLayout(regPwdLayout);
 
     // 连接密码显示切换功能
-    connect(showPwdBtn, &QPushButton::clicked, this, [=]() {
-        if (ui->password->echoMode() == QLineEdit::Password) {
+    connect(showPwdBtn, &QPushButton::clicked, this, [=]()
+    {
+        if (ui->password->echoMode() == QLineEdit::Password)
+        {
             ui->password->setEchoMode(QLineEdit::Normal);
             showPwdBtn->setText("🙈");
-        } else {
+        }
+        else
+        {
             ui->password->setEchoMode(QLineEdit::Password);
             showPwdBtn->setText("👁");
         }
     });
 
-    connect(showRegPwdBtn, &QPushButton::clicked, this, [=]() {
-        if (ui->regPassword->echoMode() == QLineEdit::Password) {
+    connect(showRegPwdBtn, &QPushButton::clicked, this, [=]()
+    {
+        if (ui->regPassword->echoMode() == QLineEdit::Password)
+        {
             ui->regPassword->setEchoMode(QLineEdit::Normal);
             showRegPwdBtn->setText("🙈");
-        } else {
+        }
+        else
+        {
             ui->regPassword->setEchoMode(QLineEdit::Password);
             showRegPwdBtn->setText("👁");
         }
@@ -171,6 +179,11 @@ void Login::startConnection(Message *message)
             saveUserInfo();
             //显示游戏窗口
             GameMode* mode = new GameMode;
+
+            //当GameMode窗口关闭时，确保应用程序退出
+            connect(mode, &GameMode::finished, &QApplication::quit);
+            connect(mode, &GameMode::rejected, &QApplication::quit);
+
             mode->show();
             accept();
         });

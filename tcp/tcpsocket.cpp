@@ -80,9 +80,9 @@ bool TcpSocket::sendMsg(QByteArray msg, int timeout)
     {
         //发送数据 = 数据头（headLen）+ 数据块
 
-        qDebug() << "数据头长度： (小端)" << msg.size() << Qt::endl;
+        //qDebug() << "数据头长度： (小端)" << msg.size() << Qt::endl;
         int headLen = htonl(msg.size());
-        qDebug() << "数据头长度： (大端)" << headLen << Qt::endl;
+        //qDebug() << "数据头长度： (大端)" << headLen << Qt::endl;
 
         int length = sizeof(int) + msg.size();
         char* data = new char[length];
