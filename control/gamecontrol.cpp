@@ -2,6 +2,7 @@
 
 #include <QDebug>
 #include "datamanager.h"
+#include "codec.h"
 
 GameControl::GameControl(QObject *parent)
     : QObject{parent}
@@ -225,7 +226,21 @@ void GameControl::onGrabBet(Player *player, int bet)
     {
         if(m_record.bet == 0)
         {
-            emit gameStatusChanged(GameStatus::DispatchCard);
+            // 所有玩家都不抢地主，需要重新发牌
+            if(DataManager::getInstance()->isNetworkMode())
+            {
+                // 网络模式：向服务器请求重新发牌
+                Message msg;
+                msg.userName = DataManager::getInstance()->getUserName();
+                msg.roomName = DataManager::getInstance()->getRoomName();
+                msg.reqCode = RequestCode::ReDealCards;
+                DataManager::getInstance()->getCommunication()->sendMessage(&msg);
+            }
+            else
+            {
+                // 单机模式：直接重新发牌
+                emit gameStatusChanged(GameStatus::DispatchCard);
+            }
         }
         else
         {
